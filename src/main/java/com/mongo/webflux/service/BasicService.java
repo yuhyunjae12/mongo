@@ -6,6 +6,7 @@ import com.mongo.webflux.document.BasicDoc;
 import com.mongo.webflux.repository.BasicRepository;
 
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @Service
 public class BasicService {
@@ -16,9 +17,12 @@ public class BasicService {
 		this.basicRepository = basicRepository;
 	}
 
+	public Flux<BasicDoc> findAllDoc(){
+		return basicRepository.findAll();
+	}
 	
-	public Flux<BasicDoc> findByTitle(String title){
-		return basicRepository.findByTitle(title);
+	public Mono<BasicDoc> save(BasicDoc doc){
+		return basicRepository.save(doc);
 	}
 	
 }

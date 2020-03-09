@@ -10,5 +10,4 @@ import reactor.core.publisher.Flux;
 
 public interface BasicRepository extends ReactiveCrudRepository<BasicDoc, String>{
 
-	Flux<BasicDoc> findByTitle(String title);
 } 
